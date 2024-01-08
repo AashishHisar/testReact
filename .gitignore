@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+//get all the qb_customer_id from user table
+//test the qb_customer_id with api of quickbooks
+//get the qb_customer_id which are not matched
+//then in update the user api of quickbooks
