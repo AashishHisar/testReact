@@ -12,6 +12,9 @@ const Contact = () => {
   });
   const validNameRegix = /^[a-zA-Z]+$/;
 
+  const formSubmit = (e) => {
+    console.log(formData);
+  }
   const handleChange = (e) => {
 
     console.log(e.target.value.length);
@@ -21,27 +24,27 @@ const Contact = () => {
       case "firstName":
         if (e.target.name == "firstName") {
           if (validNameRegix.test(e.target.value)) {
-            setData((prev) => ({ ...prev, firstName: true }));
+            setError((prev) => ({ ...prev, firstName: true }));
           } else {
-            setData((prev) => ({ ...prev, firstName: false }));
+            setError((prev) => ({ ...prev, firstName: false }));
           }
         }
         break;
       case "lastName":
         if (e.target.name == "lastName") {
           if (validNameRegix.test(e.target.value)) {
-            setData((prev) => ({ ...prev, lastName: true }));
+            setError((prev) => ({ ...prev, lastName: true }));
           } else {
-            setData((prev) => ({ ...prev, lastName: false }));
+            setError((prev) => ({ ...prev, lastName: false }));
           }
         }
         break;
       case "emailName":
         if (e.target.name == "emailName") {
           if (validNameRegix.test(e.target.value)) {
-            setData((prev) => ({ ...prev, emailName: true }));
+            setError((prev) => ({ ...prev, emailName: true }));
           } else {
-            setData((prev) => ({ ...prev, emailName: false }));
+            setError((prev) => ({ ...prev, emailName: false }));
           }
         }
         break;
@@ -51,26 +54,26 @@ const Contact = () => {
   return (
     <>
       <h3>"For Validation Component form"</h3>
-      <form className="mt-2">
+      <form className="mt-2" onSubmit={formSubmit}>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">firstName</label>
           <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={formData.firstName} name='firstName' onChange={handleChange} />
           <div className='text-danger'>
-            {!error.firstName ? "" : "not matched"}
+            {!error.firstName ? "" : "Format for first name is invalid"}
           </div>
         </div>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">Last Name</label>
           <input type="text" name="lastName" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={formData.lastName} onChange={handleChange} />
           <div className='text-danger'>
-            {!error.lastName ? "" : "not matched"}
+            {!error.lastName ? "" : "Format for last name is invalid"}
           </div>
         </div>
         <div className="mb-3">
           <label for="exampleInputPassword1" className="form-label">Email Address</label>
-          <input type="email" className="form-control" id="exampleInputPassword1" value={formData.address} name="emailName" onChange={handleChange} />
+          <input type="text" className="form-control" id="exampleInputPassword1" value={formData.address} name="emailName" onChange={handleChange} />
           <div className='text-danger'>
-            {!error.emailName ? "" : "not matched"}
+            {!error.emailName ? "" : "Format for email is invalid"}
           </div>
         </div>
         <button type="submit" className="btn btn-primary align-self-start">Submit</button>
@@ -81,7 +84,8 @@ const Contact = () => {
         onClick={() => setCount(count + 1)}
       >+</button>
       <p>Calculation: {calculation}</p>
-      <Link to="/" >Back</Link>
+      <Link to="/" >Back</Link><br />
+      <Link to="/dashboard" >Final Step</Link>
     </>
   )
 }

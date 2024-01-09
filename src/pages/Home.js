@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Contact from './Contact';
 
 
 const Home = () => {
 
     const [data, setData] = useState({
-        name:"aashish",
+        name: "aashish",
     });
     const [showpopup, setShowpopup] = useState(false)
     const [profile, setprofile] = useState('');
@@ -14,7 +14,7 @@ const Home = () => {
     const validProfile = /^[A-Za-z]+$/;
 
     const onSubmitForm = (e) => {
-        const test=localStorage.setItem("formData", JSON.stringify(data.name));
+        const test = localStorage.setItem("formData", JSON.stringify(data.name));
     }
 
     const handlerprofile = (e) => {
@@ -50,8 +50,7 @@ const Home = () => {
                     {/* <input type="text" value={profile} onChange={(e) => handlerprofile(e)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={data.profile} /> */}
                 </div>
                 <button type="submit" className="btn btn-primary align-self-start">Submit</button>
-
-                <Link to="/contact" >next</Link>
+                <NavLink to="/contact" >next</NavLink>
             </form>
         </>
     )
