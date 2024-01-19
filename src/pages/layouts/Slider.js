@@ -22,7 +22,7 @@ const Slider = () => {
             } else {
                 await fetch(`https://fakestoreapi.com/products/category/${productCategory}`)
                     .then(response => response.json())
-                    .then(data => setData(data))
+                    .then(data => setData(data)) 
             }
         } catch (error) {
             console.error('Error fetching data:', error);
