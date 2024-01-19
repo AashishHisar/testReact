@@ -1,6 +1,9 @@
 import React from 'react'
 import Layout from './layouts/Layout'
+import { useState } from 'react';
+
 const Dashboard = () => {
+
   return (
     <>
     <Layout>

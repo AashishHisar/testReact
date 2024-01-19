@@ -6,9 +6,10 @@ import Slider from './Slider'
 const Layout = ({ children }) => {
   return (
     <>
-      <Header />
-      {children}
+     
+      
       <Slider />
+    
       <Footer />
     </>
   )

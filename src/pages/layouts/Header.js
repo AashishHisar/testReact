@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Header = () => {
+const Header = ({ onSearch }) => {
   return (
     <div><nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
@@ -60,6 +60,16 @@ const Header = () => {
                 Something else here
               </a>
             </div>
+          </li>
+          <li className='pull-right'>
+            {/* <input type="search" className="form-control me-2" placeholder="Search" } /> */}
+            <select className="form-select" aria-label="Default select example" onChange={(e) => onSearch(e)}>
+              <option value="">Simple</option>
+              <option value="jewelery">Jewelery</option>
+              <option value="electronics">Electronics</option>
+              <option value="men's clothing">Men's clothing</option>
+            </select>
+
           </li>
         </ul>
       </div>
