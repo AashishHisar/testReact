@@ -10,20 +10,14 @@ const Slider = () => {
     const [data, setData] = useState([]);
     const [conditionPrice, setMaxPrice] = useState(100);
     const [productCategory, setProductCategory] = useState("");
-    // const [filterProduct, setFilterProduct] = useState("");
 
-    // const history = useHistory();
     const callGetApi = async () => {
+        let apiUrl = (productCategory == "") ? `https://fakestoreapi.com/products` : `https://fakestoreapi.com/products/category/${productCategory}`;
         try {
-            if (productCategory == "") {
-                await fetch(`https://fakestoreapi.com/products`)
-                    .then(response => response.json())
-                    .then(data => setData(data))
-            } else {
-                await fetch(`https://fakestoreapi.com/products/category/${productCategory}`)
-                    .then(response => response.json())
-                    .then(data => setData(data)) 
-            }
+            await fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => setData(data))
+
         } catch (error) {
             console.error('Error fetching data:', error);
         }
