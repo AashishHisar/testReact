@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/product/details/:productId" element={<ProductDetails/>} />
-          <Route path="/show-login-model" element={<Login/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </BrowserRouter>
     </div>

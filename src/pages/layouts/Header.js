@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Model from '../../Custom/Model';
+import { Link } from 'react-router-dom';
 
 const Header = ({ onSearch }) => {
-  const [show, setShow] = useState(false)
+  // const [show, setShow] = useState(false)
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light position-relative">
@@ -76,11 +76,11 @@ const Header = ({ onSearch }) => {
           </ul>
         </div>
         <div>
-          <button type="button" className="btn btn-success" onClick={()=>setShow(true)}>Login</button>
+          <Link to="/login"> <button type="button" className="btn btn-success" >Login</button></Link>
         </div>
       </nav>
-      {show ? 
-      <Model heading="login"/> :""}
+      {/* {show ?
+        <Model heading="login" /> : ""} */}
     </div>
   )
 }
